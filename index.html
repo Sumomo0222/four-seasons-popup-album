@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>四季旅行记忆 · 3D 立体旅行相册</title>
+<meta name="description" content="一本可以打开的四季立体旅行相册：雪国列车、江南古镇、夏日海岛、秋日山野。拖动开合角度，看场景从平面逐层展开；点击照片，阅读碎片日记。">
+<meta name="theme-color" content="#31495a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<div id="vignette"></div>
+
+<!-- 装载 -->
+<div id="loader"><div class="loader-inner"><span class="lb">📖</span><p>装 帧 中 …</p></div></div>
+
+<!-- 书名铭牌 -->
+<header id="plate">
+  <h1>四季旅行记忆</h1>
+  <p>A POP-UP JOURNEY · 立体旅行手帖 · 2024—2025</p>
+</header>
+
+<!-- 章节铭牌 -->
+<div id="badge"></div>
+
+<!-- 顶部按钮 -->
+<nav id="topbar">
+  <button id="btnAuto" class="pbtn">▶ 自动播放</button>
+  <button id="btnRoute" class="pbtn">🗺 路线</button>
+  <button id="btnHelp" class="pbtn" title="帮助">?</button>
+</nav>
+
+<!-- 底部控制台 -->
+<footer id="controlbar">
+  <button id="btnPrev" class="cbtn" title="上一章">◀</button>
+  <div id="dots">
+    <button title="冬 · 雪国列车">冬</button>
+    <button title="春 · 江南古镇">春</button>
+    <button title="夏 · 海岛">夏</button>
+    <button title="秋 · 山野">秋</button>
+  </div>
+  <button id="btnNext" class="cbtn" title="下一章">▶</button>
+  <div id="sliderWrap">
+    <span>合</span>
+    <input id="openSlider" type="range" min="0" max="100" value="0" aria-label="书本开合角度">
+    <span>开</span>
+  </div>
+</footer>
+
+<div id="hint">拖动书页或滑杆，打开这本立体相册 · 点击照片，读一段日记</div>
+
+<!-- 章节间旅行路线 -->
+<div id="routeStrip"></div>
+
+<!-- 弹窗（照片日记 / 路线 / 帮助 / 终章） -->
+<div id="modal"><div id="modalCard"></div></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
